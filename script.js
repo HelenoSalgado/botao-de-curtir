@@ -20,8 +20,23 @@ function maisUmaCurtida(){
         acumulosDeCurtidas++;
         curtidasAcumuladas = acumulosDeCurtidas;
     }
-    numeroDeCurtidas();
+            numeroDeCurtidas();
+}
+        
+curtidas.onclick = maisUmaCurtida;
+
+// Recebendo dados do servidor.
+
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4){
+                console.log(xhr);
+    }
 }
 
+xhr.open("GET", "conexao.php");
+xhr.send();
         
-curtidas.onclick = maisUmaCurtid;
+
+        // Enviando dados para o servidor.
