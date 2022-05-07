@@ -42,15 +42,30 @@ recarregar();
 
 // Recebendo dados do servidor.
 
+// var xhr = new XMLHttpRequest();
+
+// xhr.onreadystatechange = function(){
+//     if(xhr.readyState == 4){
+//         console.log(xhr);
+//     }
+// }
+
+// xhr.open("GET", "https://helenosalgado.github.io/botao-de-curtir/curtida.php");
+// xhr.send();
+        
+// Enviando dados para o servidor.
+
 var xhr = new XMLHttpRequest();
+var document = {
+    "numero": localStorage.info,
+}
 
 xhr.onreadystatechange = function(){
+
     if(xhr.readyState == 4){
         console.log(xhr);
     }
+
 }
 
-xhr.open("GET", "https://helenosalgado.github.io/botao-de-curtir/curtida.php");
-xhr.send();
-        
-// Enviando dados para o servidor.
+xhr.open("POST", "conexao.php");
