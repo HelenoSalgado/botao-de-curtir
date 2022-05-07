@@ -67,5 +67,5 @@ xhr.onreadystatechange = function(){
     }
 
 }
-
-xhr.open("POST", "conexao.php");
+xhr.open("POST", "https://helenosalgado.github.io/botao-de-curtir/curtida.php");
+xhr.send(document);

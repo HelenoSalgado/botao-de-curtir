@@ -1,10 +1,12 @@
 <?php
-if(isset($_POST['submit']))
-{
-    include_once('conexao.php');
-    $nome = ($_POST['nome']);
-    $email = ($_POST['email']);
 
-    $result = mysqli_query($conexao, "INSERT INTO dbCurtidasTeste(id, email) VALUES ('$nome', '$email')");
-}
+    include_once('curtida.php');
+    $numero = ($_POST['numero']);
+    $id = ($_POST['default']);
+
+    $result = mysqli_query($conexao, "INSERT INTO curtidas(id, numero) 
+    
+    VALUES 
+    ('$id', '$numero')");
+
 ?>
