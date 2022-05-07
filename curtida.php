@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit']))
 {
-    include_once('curtida.php');
+    include_once('conexao.php');
     $nome = ($_POST['nome']);
     $email = ($_POST['email']);
 
