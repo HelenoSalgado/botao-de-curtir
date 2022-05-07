@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="curta.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>BOTÃO DE CURTIR</title>
+</head>
+<body>
+    <h1>Botão de Curtir</h1>
+
+    <div class="botao-de-curtir">
+        <div class="curtir">
+            <img src="curta.png" alt="Botão de Curtir">
+            <div id="mostra">  
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var curtidas = document.querySelector('div.curtir');
+        var acumulosDeCurtidas = null;
+        var curtidasAcumuladas;
+
+
+        function numeroDeCurtidas(){
+            
+            if(localStorage.info){
+
+                localStorage.info++;
+                mostra.innerHTML = localStorage.info;
+
+            }
+
+        }
+
+        function maisUmaCurtida(){
+
+            if(curtidas){
+               acumulosDeCurtidas++;
+               curtidasAcumuladas = acumulosDeCurtidas;
+            }
+            numeroDeCurtidas();
+        }
+        
+        curtidas.onclick = maisUmaCurtida;
+
+        // Recebendo dados do servidor.
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                console.log(xhr);
+            }
+        }
+
+        xhr.open("GET", "conexao.php");
+        xhr.send();
+        
+
+        // Enviando dados para o servidor.
+
+        var xhr = new XMLHttpRequest();
+        var document = {
+
+        }
+        
+    </script>
+
+    <footer>
+        <p>As curtidas não são gravadas no banco de dados, ao recarregar a página as informações são perdidas. Pretendo consertar isso e arrumar uma função ou condição para o deslike. Despois compartilharei o código <strong><em>- Exercício Baseado nas Aulas de Lógica de Programação, do programa ONE - ORACLE  NEXT EDUCATION.</em></strong></p>
+    </footer>
+    <!-- ALTER TABLE `dbCurtidasTeste` CHANGE `curtidas` `curtidas` INT(10) UNSIGNED NULL DEFAULT NULL; -->
+</body>
+</html>
