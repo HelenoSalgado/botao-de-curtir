@@ -34,38 +34,22 @@ function maisUmaCurtida(){
     numeroDeCurtidas();
 }
 
+function GravaCurtida(){
+    
+    // conecta ao servidor
+	var xmlhttp = new XMLHttpRequest();
+ 
+	/* colocar na url os valores que quer passar para o servidor.
+	   seu arquivo PHP deverá capturar os dados usando $_GET[]; */
+    var url = "grava-curtida.php?maiscurtida=" + document.getElementById('mostra').value; 
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+	//alert("Gravado com sucesso no servidor");
+}
+
 // Chama a função acima.
 curtidas.onclick = maisUmaCurtida;
 
 // Garante que os dados retorne à tela.
 recarregar();
 
-// Recebendo dados do servidor.
-
-// var xhr = new XMLHttpRequest();
-
-// xhr.onreadystatechange = function(){
-//     if(xhr.readyState == 4){
-//         console.log(xhr);
-//     }
-// }
-
-// xhr.open("GET", "https://helenosalgado.github.io/botao-de-curtir/curtida.php");
-// xhr.send();
-        
-// Enviando dados para o servidor.
-
-var xhr = new XMLHttpRequest();
-var document = {
-    "numero": localStorage.info,
-}
-
-xhr.onreadystatechange = function(){
-
-    if(xhr.readyState == 4){
-        console.log(xhr);
-    }
-
-}
-xhr.open("POST", "https://helenosalgado.github.io/botao-de-curtir/curtida.php");
-xhr.send(document);
