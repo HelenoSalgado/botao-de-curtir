@@ -1,55 +1,52 @@
 // A variável acumoloDeCurtidas recebe uma valor nulo para receber um valor incrementado.
 var curtidas = document.querySelector('div.curtir');
-var acumuloDeCurtidas = null;
 var curtidasAcumuladas;
+var requestCurtidas;
+var acumuloDeCurtidas;
+var xhr = new XMLHttpRequest();
+var xml = new XMLHttpRequest(); 
+
+// Iniciar uma requisição.
+function requisicao(){
+
+xhr.onreadystatechange = function(){
+    if(xhr.readyState == 4){
+        requestCurtidas = xhr.responseText;
+        acumuloDeCurtidas = Number(parseInt(requestCurtidas));
+        mostra.innerHTML = acumuloDeCurtidas;
+    }
+}
+xhr.open("GET", "http://botao-de-curtir.atwebpages.com/request.php");
+xhr.send();
+}
+
 
 // permite retornar o valor do elemento ao recarregar a página.
 function recarregar(){
-    mostra.innerHTML = localStorage.info;
+    requisicao();
 }
 
-// Se não houver um banco de dados local definido, será criado. 
-
-    if(localStorage.info == undefined){
-        localStorage.info = 0;
-    }
-
-// Incrementa ou decrementa uma curtida, salvando-a no banco de dados criado pela condição acima.
-function numeroDeCurtidas(){
-    if(localStorage.info == 0){
-        localStorage.info++;
-        mostra.innerHTML = localStorage.info;
-    }else{
-        localStorage.info--;
-        mostra.innerHTML = localStorage.info;
-    }
-}
-
-// Incrementa uma curtida e chama a função acima, que contabiliza o total de curtidas.
+// Incrementa uma curtida e chama a função abaixo.
 function maisUmaCurtida(){
-    if(curtidas){
+    if(acumuloDeCurtidas){
         acumuloDeCurtidas++;
         curtidasAcumuladas = acumuloDeCurtidas;
     }
-    numeroDeCurtidas();
+    GravaCurtida();
 }
 
+// conecta ao servidor e envia dados para o servidor.
 function GravaCurtida(){
     
-    // conecta ao servidor
-	var xmlhttp = new XMLHttpRequest();
- 
-	/* colocar na url os valores que quer passar para o servidor.
-	   seu arquivo PHP deverá capturar os dados usando $_GET[]; */
-    var url = "grava-curtida.php?maiscurtida=" + document.getElementById('mostra').value; 
-	xmlhttp.open("GET", url, true);
-	xmlhttp.send();
-	//alert("Gravado com sucesso no servidor");
+    var url = "http://botao-de-curtir.atwebpages.com/grava-curtida.php?maisumacurtida=" + curtidasAcumuladas; 
+	xml.open("GET", url, true);
+	xml.send();
+        requisicao();
 }
 
-// Chama a função acima.
+// Chama a função que incrementa curtida.
 curtidas.onclick = maisUmaCurtida;
 
-// Garante que os dados retorne à tela.
-recarregar();
 
+// Permite que os dados não deixem a tela com refresh.
+recarregar();
