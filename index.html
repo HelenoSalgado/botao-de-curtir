@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="curta.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>BOTÃO DE CURTIR</title>
+    <meta name="description" content="Página desenvolvida com o objetivo de exercitar e vencer desafios da lógica de programação com JavaScript.">
+    <meta property="og:image" content="http://botao-de-curtir.atwebpages.com/gostei.png" />
+</head>
+<body>
+<!-- Imagem de capa -->
+<div class="filter"></div>
+<img class="capa" src="img/capa.webp">
+<!-- Fim -->
+
+<div class="slide">
+    <img class="narutoSlide" src="img/naruto-running.gif">
+    <img class="narutoSlide" src="img/naruto-classico.gif"> 
+    <img class="narutoSlide" src="img/exame.gif">
+    <img class="narutoSlide" src="img/genins.gif">
+    <img class="narutoSlide" src="img/naruto-raposa.gif">
+    <img class="narutoSlide" src="img/naruto-giraya.gif">
+    <img class="narutoSlide" src="img/promessa.gif">
+    <img class="narutoSlide" src="img/sasuke.gif">
+    <img class="narutoSlide" src="img/gaara.gif">
+    <img class="narutoSlide" src="img/hinnata.gif">
+    <img class="narutoSlide" src="img/sakura.gif">
+    <img class="narutoSlide" src="img/timesete.gif">
+    <img class="narutoSlide" src="img/itachi.gif">
+    <img class="narutoSlide" src="img/rim.webp">
+    <img class="narutoSlide" src="img/sharingan.gif">
+    <img class="narutoSlide" src="img/luta.webp">
+    <img class="narutoSlide" src="img/luta02.gif">
+</div>
+<br>
+<div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span>     
+</div>
+    
+<!-- Botão de Curtir -->
+<div class="botao-de-curtir">
+    <div class="curtir">
+        <img src="gostei.png" alt="Botão de Curtir">
+   </div>
+</div>
+<div id="mostra"></div>
+<!-- Fim -->
+<!-- Player de áudio e chamada para animações -->
+<div class="player">
+   <div class="play" onclick="audioplayer()">
+     <div class="disc-play"></div>
+        <div class="botao-player">
+            <div class="reproduzir"></div>
+            <div class="pause">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+<audio>
+    <source src="music/naruto-music.m4a" type="audio/m4a">
+    <source src="music/naruto-music.ogg" type="audio/ogg">
+</audio>
+<!-- Fim -->
+
+<script src="script.js"></script>
+</body>
+</html>
