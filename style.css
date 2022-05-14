@@ -139,13 +139,3 @@ audio{
         left: -70%;
     }
 }
-@media (max-width: 750px) and (orientation: landscape){ 
-    div.player{
-        display: none;
-    }
-    div#mostra{
-        position: absolute;
-        top: 70%;
-        transform: translate(-50%);
-    }
-}
