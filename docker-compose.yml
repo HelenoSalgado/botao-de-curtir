@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  apache:
+    build: .
+    container_name: php
+    restart: always
+    ports:
+      - '80:80'
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+
+  mysqldb:
+    build: ./db
+    container_name: mysql
+    restart: always
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_ROOT_PASSWORD: 'pass'
+       MYSQL_DATABASE: 'posts'
+       MYSQL_USER: 'user'
+       MYSQL_PASSWORD: 'pass'

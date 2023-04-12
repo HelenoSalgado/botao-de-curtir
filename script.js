@@ -5,11 +5,12 @@ const bubble = document.querySelector("span");
 const fetchData = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data)
   return data;
 };
 
 const incrementLikes = async () => {
-  const data = await fetchData("/botao-de-curtir/increment-likes.php");
+  const data = await fetchData("increment-likes.php");
   countNum.textContent = data.curtidas;
 };
 
@@ -22,8 +23,9 @@ likeBtn.addEventListener("click", async () => {
 });
 
 const getLikes = async () => {
-  const data = await fetchData("/botao-de-curtir/get-likes.php");
-  countNum.textContent = data.curtidas;
+  const data = await fetchData("get-likes.php");
+  console.log(data)
+  countNum.textContent = await data.curtidas;
 };
 
 getLikes();

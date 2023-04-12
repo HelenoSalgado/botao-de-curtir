@@ -9,6 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: -apple-system, sans-serif;
+  overflow: hidden;
 }
 
 .like {
